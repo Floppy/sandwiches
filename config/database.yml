@@ -8,4 +8,4 @@ test:
 
 production:
   adapter: sqlite3
-  database: /var/www/s.andwi.ch/shared/db/sandwich_production.db
+  database: ../../shared/db/sandwich_production.db
