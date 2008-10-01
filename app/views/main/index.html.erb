@@ -1,0 +1,25 @@
+<% if params[:components].size > 0 %>
+  <h1>Your Sandwich</h1>
+  <ul>
+    <% params[:components].reverse.each do |c| %>
+      <li><%=h c %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h1>Create a new sandwich</h1>
+  <p>
+    Add your ingredients using the form below - starting from the bottom, naturally.
+  </p>
+<% end %>
+
+<% form_tag do %>
+  <%= text_field :ingredients, :new %>
+  <%= submit_tag 'Add Ingredient' %>
+<% end %>
+
+<% if params[:components].size > 0 %>
+  <p>
+    <%= link_to "new sandwich", "/" %>
+  </p>
+<% end %>
+
