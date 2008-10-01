@@ -1,5 +1,6 @@
 <% if params[:components].size > 0 %>
   <h1>Your Sandwich</h1>
+  <%= image_tag "http://qrcode.kaywa.com/img.php?s=2&d=#{request.protocol}#{request.host_with_port}#{(request.request_uri)}", :alt=>"qrcode", :style => "float:right" %>
   <ul>
     <% params[:components].reverse.each do |c| %>
       <li><%=h c %></li>
