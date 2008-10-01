@@ -1,6 +1,9 @@
 <% if params[:components].size > 0 %>
   <h1>Your Sandwich</h1>
   <%= image_tag "http://qrcode.kaywa.com/img.php?s=2&d=#{request.protocol}#{request.host_with_port}#{(request.request_uri)}", :alt=>"qrcode", :style => "float:right" %>
+  <p>
+    Don't forget to bookmark this sandwich for future reference!
+  </p>
   <ul>
     <% params[:components].reverse.each do |c| %>
       <li><%=h c %></li>
@@ -9,13 +12,16 @@
 <% else %>
   <h1>Create a new sandwich</h1>
   <p>
+    Yes, it's finally true. You can bookmark your favourite sandwiches, and share them with your friends! Yes, it's what the world has been waiting for.
+  </p>
+  <p>
     Add your ingredients using the form below - starting from the bottom, naturally.
   </p>
 <% end %>
 
 <% form_tag do %>
   <%= text_field :ingredients, :new %>
-  <%= submit_tag 'Add Ingredient' %>
+  <%= submit_tag 'Add Layer' %>
 <% end %>
 
 <% if params[:components].size > 0 %>
