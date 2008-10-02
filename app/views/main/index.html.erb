@@ -1,5 +1,11 @@
 <% if params[:components].size > 0 %>
   <h1>Your Sandwich</h1>
+  <div style="float:right; font-size: 0.75em; text-align: right">
+    Save to:<br/>
+    <% rubymarks_services.each_key do |service| %>
+      <%= bookmark_tag service, request.protocol + request.host_with_port + request.request_uri, :new_window => true %><br/>
+    <% end %>
+  </div>
   <%= image_tag "http://qrcode.kaywa.com/img.php?s=2&d=#{request.protocol}#{request.host_with_port}#{(request.request_uri)}", :alt=>"qrcode", :style => "float:right" %>
   <p>
     Don't forget to bookmark this sandwich for future reference!
@@ -25,7 +31,7 @@
 <% end %>
 
 <% if params[:components].size > 0 %>
-  <p>
+  <p style="clear:right">
     <%= link_to "new sandwich", "/" %>
   </p>
 <% end %>

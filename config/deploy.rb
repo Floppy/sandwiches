@@ -12,6 +12,15 @@ role :app, "67.207.134.233"#"s.andwi.ch"
 role :web, "67.207.134.233"#"s.andwi.ch"
 role :db,  "67.207.134.233", :primary => true#"s.andwi.ch", :primary => true
 
+after "deploy:update_code", "gems:install"
+
+namespace :gems do
+  desc "Install required gems on server"
+  task :install do
+    run "sudo rake RAILS_ENV=production -f #{release_path}/Rakefile gems:install"
+  end
+end
+
 namespace :deploy do
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
