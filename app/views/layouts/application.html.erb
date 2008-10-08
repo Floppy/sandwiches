@@ -14,12 +14,12 @@
       var pageTracker = _gat._getTracker("UA-2310810-3");
       pageTracker._trackPageview();
     </script>
+    <%= stylesheet_link_tag 'main' %>
   </head>
   <body>
     <%= yield %>
-    <hr/>
-    <p style="font-size: 0.75em">
+    <div class="footer">
       Imagined by <a href="http://tomtaylor.co.uk">Tom Taylor</a>, hacked together by <a href="http://www.floppy.org.uk">James Smith</a>.
-    </p>
+    </div>
   </body>
 </html>

@@ -1,0 +1,46 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+div.content {
+  background: url(/images/background.jpg);
+  padding: 20px;
+  color: white;
+}
+
+div.footer {
+  padding: 120px 20px 0px 20px;
+  font-size: 0.75em;
+  background: url(/images/footer.jpg);
+  height: 30px;
+  clear:both;
+}
+
+div.bookmarks {
+  float:right;
+  margin-left: 20px;
+  border: 2px solid black;
+}
+
+div.bookmarks div.bookmarks-header {
+  background: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.bookmarks div.bookmarks-list {
+  background: white;
+  font-size: 0.75em;
+  text-align: right;
+  padding: 10px;
+}
+
+div.main-content {
+  background: white;
+  border: 2px solid black;
+  width: 50%;
+  color: black;
+  margin-bottom: 20px;
+  padding: 10px;
+}

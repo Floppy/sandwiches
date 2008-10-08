@@ -1,38 +1,49 @@
+<div class="content">
 <% if params[:components].size > 0 %>
-  <h1>Your Sandwich</h1>
-  <div style="float:right; font-size: 0.75em; text-align: right">
-    Save to:<br/>
-    <% rubymarks_services.each_key do |service| %>
-      <%= bookmark_tag service, request.protocol + request.host_with_port + request.request_uri, :new_window => true %><br/>
-    <% end %>
+  <h1>My s.andwi.ch</h1>
+  <div class="bookmarks">
+    <div class="bookmarks-header">Save</div>
+    <div class="bookmarks-list">
+      <% rubymarks_services.each_key do |service| %>
+        <%= bookmark_tag service, request.protocol + request.host_with_port + request.request_uri, :new_window => true %><br/>
+      <% end %>
+    </div>
   </div>
   <%= image_tag "http://qrcode.kaywa.com/img.php?s=2&d=#{request.protocol}#{request.host_with_port}#{(request.request_uri)}", :alt=>"qrcode", :style => "float:right" %>
-  <p>
-    Don't forget to bookmark this sandwich for future reference!
-  </p>
-  <ul>
-    <% params[:components].reverse.each do |c| %>
-      <li><%=h c %></li>
-    <% end %>
-  </ul>
+  <div class="main-content">
+    <p>
+      <strong>Layers:</strong>
+    </p>
+    <ul>
+      <% params[:components].reverse.each do |c| %>
+        <li><%=h c %></li>
+      <% end %>
+    </ul>
 <% else %>
-  <h1>Create a new sandwich</h1>
-  <p>
-    Yes, it's finally true. You can bookmark your favourite sandwiches, and share them with your friends! It's what the world has been waiting for. Possibly.
-  </p>
-  <p>
-    Add your ingredients using the form below - starting from the bottom, naturally.
-  </p>
+  <h1>s.andwi.ch</h1>
+  <div class="main-content">
+    <p>
+      Yes, it's finally true. You can bookmark your favourite sandwiches, and share them with your friends! It's what the world has been waiting for. Possibly.
+    </p>
+    <p>
+      Add your ingredients below - starting from the bottom, naturally.
+    </p>
 <% end %>
 
 <% form_tag do %>
   <%= text_field :ingredients, :new %>
   <%= submit_tag 'Add Layer' %>
 <% end %>
+<%= javascript_tag "document.getElementById('ingredients_new').focus()" %>
 
 <% if params[:components].size > 0 %>
-  <p style="clear:right">
-    <%= link_to "new sandwich", "/" %>
+  <p>
+    Don't forget to bookmark this sandwich for future reference!
+  </p>
+  <p>
+    <%= link_to "start a new sandwich", "/" %>
   </p>
 <% end %>
-
+</div>
+  <div style="clear:right">&nbsp</div>
+</div>
